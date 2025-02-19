@@ -1,15 +1,32 @@
 ﻿using System;
 using System.Runtime.Serialization;
 class Person{
-    public string name;
+ private string name;
+    public string Name{
+      get{ return name;}
+      set{ if(value.Length ==3)
+      {
+name = value;
+      }
+      else
+      {
+Console.WriteLine($" Invaild lenght {name} ");
+      }
+      }
+    }
     private int age; 
 
-
-      // Properties of age.
-    public int Age                
+    public int Age
     {
-       get{ return age ;}  // For Readable      
-       set{ age = value ;}  //For Writeable
+       get{ return age ;}
+       set{ if(value>=18)
+       {
+       age = value;
+       } 
+       else {
+        Console.WriteLine("you aren'nt eligible for this car.");
+       }
+       }
     }
     /*
     //we can read and write this
@@ -33,9 +50,9 @@ namespace MyApplication
     static void Main(string[] args)
     {
       Person p1 = new Person();
-      p1.name = "Liam";
+      p1.Name = "Liam";
 p1.Age=25;
-      Console.WriteLine($"p1.name: {p1.name}, p1.age: {p1.Age}. ");
+      Console.WriteLine($"p1.name: {p1.Name}, p1.age: {p1.Age}. ");
 
 
 
